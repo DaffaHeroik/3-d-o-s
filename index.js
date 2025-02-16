@@ -15,6 +15,18 @@ const PROXY_FILE = 'proxy.txt';
 
 const delay = (seconds) => new Promise(resolve => setTimeout(resolve, seconds * 1000));
 
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send("Bot is running!");
+});
+
+app.listen(8080, () => {
+    console.log('Server running on port 8080');
+});
+
+
 async function readFileLines(filePath) {
     try {
         const content = await fs.readFile(filePath, 'utf8');
